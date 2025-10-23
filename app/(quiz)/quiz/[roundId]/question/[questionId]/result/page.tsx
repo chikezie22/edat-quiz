@@ -5,9 +5,7 @@ interface ResultPageProps {
     roundId: string;
     questionId: string;
   }>;
-  searchParams: {
-    selected?: string;
-  };
+  searchParams: Promise<{ selected?: string }>;
 }
 
 async function getQuestion(questionId: string) {
@@ -32,7 +30,8 @@ export default async function ResultPage({
   searchParams,
 }: ResultPageProps) {
   const { roundId, questionId } = await params;
-  const selectedAnswer = searchParams.selected || "";
+  const resolvedSearchParams = await searchParams;
+  const selectedAnswer = resolvedSearchParams?.selected || "";
 
   const question = await getQuestion(questionId);
 
