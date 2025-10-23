@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Changa_One } from "next/font/google";
 import "./globals.css";
-
+import localFont from "next/font/local";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -10,6 +10,33 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const changaOne = Changa_One({
+  variable: "--font-changa-one",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const segoeUI = localFont({
+  src: [
+    {
+      path: "./font/segoeuithibd.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./font/segoeuithis.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-segoe-ui",
+});
+
+const sfPro = localFont({
+  src: "./font/SF-Pro-Rounded-Semibold.otf",
+  variable: "--font-sf-pro",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${changaOne.variable} ${segoeUI.variable} ${sfPro.variable} antialiased`}
       >
         {children}
       </body>

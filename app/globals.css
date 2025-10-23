@@ -3,13 +3,20 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --edat-primary: #0052b4;
+  --edat-dark: #18181c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-edat-primary: var(--edat-primary);
+  --color-edat-dark: var(--edat-dark);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-changa-one: var(--font-changa-one);
+  --font-segoe: var(--font-segoe-ui);
+  --font-sf-pro: var(--font-sf-pro);
 }
 
 @media (prefers-color-scheme: dark) {
